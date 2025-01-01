@@ -1,0 +1,13 @@
+class Solution(object):
+    def maximumWealth(self, accounts):
+        """
+        :type accounts: List[List[int]]
+        :rtype: int
+        """
+        highest = 0
+        for cust in accounts:
+            high = 0
+            for bank in cust:
+                high += bank
+            highest = max(highest, high)
+        return highest

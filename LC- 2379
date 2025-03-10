@@ -1,0 +1,19 @@
+class Solution(object):
+    def minimumRecolors(self, blocks, k):
+        """
+        :type blocks: str
+        :type k: int
+        :rtype: int
+        """
+        sum =0
+        for i in range(k):
+            if blocks[i]=='W':
+                sum+=1
+        minsum=sum
+        for i in range(len(blocks)-k):
+            if blocks[i]=='W':
+                sum-=1
+            if blocks[i+k]=='W':
+                sum+=1
+            minsum=min(sum,minsum)
+        return minsum

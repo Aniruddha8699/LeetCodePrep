@@ -1,3 +1,4 @@
+// Method1
 class Solution {
 public:
     vector<vector<int>> flipAndInvertImage(vector<vector<int>>& image) {
@@ -12,6 +13,23 @@ public:
                 image[i][r]=temp;
                 l++;
                 r--;
+            }
+        }
+        return image;
+    }
+};
+
+// Method2
+class Solution {
+public:
+    vector<vector<int>> flipAndInvertImage(vector<vector<int>>& image) {
+        int n = image.size();
+        int temp;
+        for(int i=0; i<n; i++ ){
+            for(int j=0;j<(n+1)/2; j++){
+                temp=image[i][j]^1;
+                image[i][j]=image[i][n-j-1]^1;
+                image[i][n-j-1]=temp;
             }
         }
         return image;
